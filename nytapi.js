@@ -4,6 +4,7 @@ var url = "";
 var catagory = "home";
 var apiKey = "a5a8d9167e074a03babab4ff8bef0945";
 var defaultLink = "<option value=\"home\" name=\"home\">Select Catagory<\/option>";
+var defaultlink2 = "<option value=\"home\" name=\"home\">Top Stories<\/option>"
 var ajax = {} ;
 var nytCatagory = [];
 var serviceChannel = new XMLHttpRequest();
@@ -11,12 +12,12 @@ var serviceChannel = new XMLHttpRequest();
 
 clearBox = function(){
   document.getElementById("outputFeed").innerHTML = "";
-  console.log("CLEAR!")
+  //console.log("CLEAR!")
 }
 
 checkCatagory = function(){
   catagory = document.getElementById("dropdown").value;
-  console.log("catagory is " + catagory);
+  //console.log("catagory is " + catagory);
   ajax.setup()
 }
 
@@ -45,7 +46,7 @@ ajax.populateFeed = function(){
     }
   }
   document.getElementById("outputFeed").innerHTML=output;
-  console.log("Output Complete");
+  //console.log("Output Complete");
   output="";
 }
 
@@ -57,8 +58,8 @@ ajax.compileList = function() {
       nytCatagory.push(theJSON.results[i].section);
     }
   }
-  document.getElementById("dropdown").innerHTML=defaultLink;
-  console.log(nytCatagory);
+  document.getElementById("dropdown").innerHTML=defaultLink + defaultlink2;
+  //console.log(nytCatagory);
   for(var i=0; i<nytCatagory.length; i++){
     var target = document.getElementById("dropdown");
     var opt = nytCatagory[i];
@@ -67,7 +68,6 @@ ajax.compileList = function() {
     el.value = opt;
     target.appendChild(el);
   }
-
 }
 
 ajax.send = function(event) {
@@ -103,7 +103,6 @@ ajax.setup = function() {
   serviceChannel.send();
   //console.log("Setup complete");
   ajax.send();
-  console.log(defaultLink);
 }
 
 window.addEventListener("load", ajax.setup,true);
