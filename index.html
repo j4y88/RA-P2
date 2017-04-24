@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script type="text/javascript" scr="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="style.css">  
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="nytapi.js"></script>
+		<meta charset="UTF-8">
 	</head>
 
 	<body>
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Catagory</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#A">Link 1</a>
-    <a href="#B">Link 2</a>
-    <a href="#C">Link 3</a>
-  </div>
-</div>
+
+	<div class="dropdown">
+  <button onclick="catagoryOpen()" class="dropbtn">Catagory</button>
+	  <div id="catagoryDropdown" class="dropdown-content">
+	    <a href="#A" id="home" class="nytCatagory">Top Stories</a>
+	    <a href="#B" id="opinion" class="nytCatagory">Opinion</a>
+	    <a href="#C" id="world" class="nytCatagory">World</a>
+	    <a href="#D" id="national" class="nytCatagory">National</a>
+	    <a href="#E" id="politics" class="nytCatagory">Politics</a>
+	    <a href="#F" id="nyregion" class="nytCatagory">NY Region</a>
+	    <a href="#G" id="business" class="nytCatagory">Business</a>
+	    <a href="#H" id="technology" class="nytCatagory">Technology</a>
+	    <a href="#I" id="science" class="nytCatagory">Science</a>
+	    <a href="#J" id="sports" class="nytCatagory">Sports</a>
+	    <a href="#K" id="arts" class="nytCatagory">Arts</a>
+	    <a href="#L" id="books" class="nytCatagory">Books</a>
+	    <a href="#M" id="movies" class="nytCatagory">Movies</a>
+	    <a href="#N" id="theater" class="nytCatagory">Theater</a>
+	    <a href="#O" id="tmagazine" class="nytCatagory">T Magazine</a>
+	    <a href="#P" id="food" class="nytCatagory">Food</a>
+	    <a href="#Q" id="travel" class="nytCatagory">Travel</a>
+	    <a href="#R" id="magazine" class="nytCatagory">Magazine</a>
+	    <a href="#S" id="realestate" class="nytCatagory">Real Estate</a>
+	    <a href="#T" id="automobiles" class="nytCatagory">Automobiles</a>
+	    <a href="#U" id="obituaries" class="nytCatagory">Obituaries</a>
+	    <a href="#V" id="insider" class="nytCatagory">Insider</a>
+
+		</div>
+	</div>
+
 	<div id="output"></div>
+
 	</body>
 </html>
