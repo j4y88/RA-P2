@@ -1,12 +1,17 @@
 var theJSON = "";
 var output= "";
 var url = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=a5a8d9167e074a03babab4ff8bef0945";
+var urla = "https://api.nytimes.com/svc/topstories/v2/"
+var urlb = ".json?api-key=a5a8d9167e074a03babab4ff8bef0945"
 var serviceChannel = new XMLHttpRequest();
 
 serviceChannel.open('GET', url, true);
+serviceChannel.send(null);
 serviceChannel.responseType = 'text';
 
 serviceChannel.onload = function () {
+    console.log(serviceChannel.readyState);
+    console.log(serviceChannel.status);
     if (serviceChannel.readyState === serviceChannel.DONE) {
         if (serviceChannel.status === 200) {
             theJSON = JSON.parse(serviceChannel.responseText);
@@ -24,8 +29,22 @@ serviceChannel.onload = function () {
     }
 }
 
-serviceChannel.send(null);
 
+
+document.addEventListener('click', function(event) {
+    console.log(event);
+    if(event.target.className === "nytCatagory"){
+      var targetId = event.target.id;
+      //console.log(targetId);
+      url = "";
+      url += urla + targetId + urlb;
+      //console.log(url);
+      serviceChannel.open('GET', url, true);
+      document.getElementById("output").innerHTML="";
+    } else {
+      console.log("nope");
+    }
+}, false);
 
 //Dropdown Box
 function catagoryOpen() {
@@ -45,5 +64,3 @@ window.onclick = function(event) {
     }
   }
 }
-
-//window.addEventListener("load",connectNYT,false);
