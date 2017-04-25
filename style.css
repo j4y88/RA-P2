@@ -83,21 +83,18 @@ input, select {
 *{box-sizing: border-box; border: 0.5px solid white;}
 body {
 	background-color: black;
+}
+body, p {
 	font-family:"Open Sans";
-	font-weight: 100;
+	font-weight: 300;
 	color: #ffffff;
 	font-size: 16px;
 }
-footer {
+footer p{
 	color: #c2c2c2;
 }
-h3 {
-	padding: 0px 10px;
-	text-align: left;
-	position: relative;
-	top: -40px;
-	left: 0px;
-	width: 100%;
+a {
+	text-decoration: none;
 }
 .flex {
 	display: flex;
@@ -112,11 +109,12 @@ h3 {
 	justify-content: center;
 	align-items: center;
 }
+.flex-align-left{
+	justify-content: center;
+	align-items: flex-start;
+}
 .width-full {
 	width: 100%;
-}
-.height-feed-block {
-	height: 100vw;
 }
 .margin-10 {
 	margin:10px;
@@ -131,26 +129,25 @@ h3 {
 	width: 100%;
 }
 .feedImage {
-	display: block;
-  margin: auto;
-	width: auto;
-	height:100vw;
-	z-index: -1;
+	height: 100vw;
 }
-.feedAbstract {
-	background:	linear-gradient(rgba(0,0,0,0.20),rgba(0,0,0,0.20)),
-	background-size: cover;
-	z-index: 1;
+.feedAbstractBox {
 
 }
+.feedAbstract {
+	display: block;
+	color: #ffffff;
+	text-decoration: none;
+	z-index: 2;
+	text-align: left;
+}
+
+
 /*
 <div id="outputFeed" class="flex flex-col flex-align-center width-full">
 	<div class="feedCell">
-		<a href="#">
-			<div class="feedAbstract">
-				<img src="#" class="feedImage">
-				<p>Abstract</p>
-			</div>
+		<a href="#" style="background-image: url(#);" src="#" class="feedImage">
+		<h3 class="feedAbstract">Abstract</h3>
 		</a>
 	</div>
 </div>
