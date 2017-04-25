@@ -1,7 +1,7 @@
 var theJSON = "";
 var output = "";
 var url = "";
-var catagory = "home";
+var catagory = "";
 var apiKey = "a5a8d9167e074a03babab4ff8bef0945";
 var defaultLink = "<option value=\"home\" name=\"home\">Select Catagory<\/option>";
 var defaultlink2 = "<option value=\"home\" name=\"home\">Top Stories<\/option>"
@@ -26,10 +26,10 @@ ajax.populateFeed = function(){
     clearBox();
     for (var i=0; i<theJSON.results.length; i++){
       if(theJSON.results[i].multimedia.length != 0){
-        output += "<a href='" + theJSON.results[i].short_url + "'>";
-        output += "<img src='" + theJSON.results[i].multimedia[1].url + "'><br>";
-        output += theJSON.results[i].title;
-        output += "</a><br><br>";
+        output += '<div class="feedCell"><a href="' + theJSON.results[i].short_url + '">';
+        output += '<img src="' + theJSON.results[i].multimedia[4].url + '" class="feedImage">';
+        output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
+        output += '</a></div>';
       }
     } 
   } else {
@@ -37,10 +37,10 @@ ajax.populateFeed = function(){
     for (var i=0; i<theJSON.results.length; i++){
       if(theJSON.results[i].section==catagory){
         if(theJSON.results[i].multimedia.length != 0){
-          output += "<a href='" + theJSON.results[i].short_url + "'>";
-          output += "<img src='" + theJSON.results[i].multimedia[1].url + "'><br>";
-          output += theJSON.results[i].title;
-          output += "</a><br><br>";
+          output += '<div class="feedCell"><a href="' + theJSON.results[i].short_url + '">';
+          output += '<img src="' + theJSON.results[i].multimedia[4].url + '" class="feedImage">';
+          output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
+          output += '</a></div>';
         }
       }
     }
@@ -52,6 +52,7 @@ ajax.populateFeed = function(){
 
 ajax.compileList = function() {
   //console.log("Start Compile List");
+  console.log(theJSON);
   for (var i=0; i<theJSON.results.length; i++){
     var n = nytCatagory.indexOf(theJSON.results[i].section);
     if(n==-1){

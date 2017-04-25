@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="style.css">  
+		<link type="text/css" rel="stylesheet" href="style.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans":100;>
 		<script type="text/javascript" src="nytapi.js"></script>
 		<meta charset="UTF-8">
 	</head>
 
-	<body>
-	<form>
-	  <select id="dropdown" onchange="checkCatagory(this), clearBox()">
-	  <option value="home" name="home">Select Catagory</option>
-		</select>
-	</form>
-	<br><br>
+	<body class="flex flex-col flex-align-center">
+		<header>
+			<div class="flex flex-col flex-align-center">
+				<img src="images/nyt-logo.svg" class="margin-25">
+				<p class="margin-10">Choose a selection</p> 
+				<form>
+				  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-25">
+				  	<option value="home" name="home">Select Catagory</option>
+					</select>
+				</form>
+			</div>
+		</header>
 
-	<div id="outputFeed"></div>
+		<div id="outputFeed" class="flex flex-col flex-align-center width-full"></div>
 	
+		<footer>
+			<p>&copy;Copyright 2016 INSTANEWS</p>
+		</footer>
+
 	</body>
 </html>
