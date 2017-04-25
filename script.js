@@ -4,8 +4,8 @@ var url = "";
 var catagory = "";
 var apiKey = "a5a8d9167e074a03babab4ff8bef0945";
 var defaultLink = "<option value=\"home\" name=\"home\">Selection...<\/option>";
-var defaultlink2 = "<option value=\"home\" name=\"home\">Top Stories<\/option>"
-var ajax = {} ;
+var defaultlink2 = "<option value=\"home\" name=\"home\">Top Stories<\/option>";
+var ajax = {};
 var nytCatagory = [];
 var serviceChannel = new XMLHttpRequest();
 
@@ -24,21 +24,27 @@ checkCatagory = function(){
 ajax.populateFeed = function(){
   if(catagory=="home"){
     clearBox();
-    for (var i=0; i<theJSON.results.length; i++){
+    var count =0;
+    for (var i=0; i<theJSON.results.length &&  count < 12; i++){
       if(theJSON.results[i].multimedia.length != 0){
-        output += '<section class="feedCell">';
-          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 100vw;" class="feedImage">";'
+        count = count+1;
+        console.log(count);
+        output += '<section class="feedCell md-flex-basis-tb md-flex-basis-dt">';
+          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 100%;" class="feedImage">'
           output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
           output += '</a></section>';
         }
     } 
   } else {
-      clearBox();
-    for (var i=0; i<theJSON.results.length; i++){
+    clearBox();
+    var count =0;
+    for (var i=0; i<theJSON.results.length && count < 12; i++){
       if(theJSON.results[i].section==catagory){
         if(theJSON.results[i].multimedia.length != 0){
-          output += '<section class="feedCell">';
-          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 100vw;" class="feedImage">";'
+          count = count+1;
+          console.log(count);
+          output += '<section class="feedCell md-flex-basis-tb md-flex-basis-dt">';
+          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 100%;" class="feedImage">'
           output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
           output += '</a></section>';
         }

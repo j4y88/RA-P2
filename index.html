@@ -7,24 +7,24 @@
 		<meta charset="UTF-8">
 	</head>
 
-	<body class="flex flex-col flex-align-center">
-		<header>
-			<div class="flex flex-col flex-align-center">
-				<img src="images/nyt-logo.svg" class="margin-25">
-				<p class="margin-10">Choose a selection</p> 
-				<form>
-				  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-25">
-				  	<option value="home" name="home">Sections...</option>
-					</select>
-				</form>
-			</div>
-		</header>
+	<body>
+		<div class="flex flex-col width-full flex-align-body">
+			<header class="flex flex-col md-flex-row flex-align-center width-full">
+				<img id="Logo" src="images/nyt-logo.svg" class="margin-25">
+				<div id="Selection" class="flex flex-col">
+					<p class="margin-10">Choose a selection:</p> 
+					<form>
+					  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-25">
+					  	<option value="home" name="home">Sections...</option>
+						</select>
+					</form>
+				</div>
+			</header>
 
-		<div id="outputFeed" class="flex flex-col flex-align-center width-full"></div>
-	
-		<footer>
-			<p>&copy;Copyright 2017 INSTANEWS</p>
-		</footer>
-		</script>
+			<div id="outputFeed" class="flex flex-col md-flex-row flex-align-center width-full">
+			</div>
+		</div>
+			
+			<footer class="text-align-center margin-10">&copy;Copyright 2017 INSTANEWS</footer>
 	</body>
 </html>

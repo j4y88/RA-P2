@@ -6,10 +6,10 @@
 		<meta charset="UTF-8">
 	</head>
 
-	<body class="flex flex-col flex-align-center">
+	<body class="flex flex-col flex-align-between">
 		<header>
 			<div class="flex flex-col flex-align-center">
-				<img src="images/nyt-logo.svg" class="margin-25">
+				<img src="images/nyt-logo.svg" class="logo margin-25">
 				<p class="margin-10">Choose a selection</p> 
 				<form>
 				  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-25">
@@ -21,7 +21,7 @@
 
 		<div id="outputFeed" class="flex flex-col flex-align-center width-full">
 			<div class="feedCell">
-				<a href="#">
+				<a href="#" style="background-image: url("abc.jpg");" class="feedCell">
 					<img src="abc.jpg" class="feedImage">
 					<div class="feedAbstractBox flex flex-align-center">
 						<h3 class="feedAbstract">Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract AbstractAbstractAbstractAbstractAbstractAbstractAbstractAbstractAbstractAbstract</h3>
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 	
-		<footer>
+		<footer class="flex flex-grow flex-align-bottom">
 			<p>&copy;Copyright 2017 INSTANEWS</p>
 		</footer>
 		</script>
