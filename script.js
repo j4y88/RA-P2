@@ -1,7 +1,8 @@
 var theJSON = "";
 var output = "";
 var url = "";
-var catagory = "";
+var loc = ""
+var choice = "";
 var apiKey = "a5a8d9167e074a03babab4ff8bef0945";
 var defaultLink = "<option value=\"home\" name=\"home\">Selection...<\/option>";
 var defaultlink2 = "<option value=\"home\" name=\"home\">Top Stories<\/option>";
@@ -16,35 +17,45 @@ clearBox = function(){
 }
 
 checkCatagory = function(){
-  catagory = document.getElementById("dropdown").value;
-  //console.log("catagory is " + catagory);
-  ajax.setup()
+  var choiceSelect = document.getElementById("dropdown").value;
+  var upperMove = document.getElementById("upper");
+  upperMove.style.padding = '';
+  var unHide = document.getElementById("outputFeed");
+  unHide.style.visibility = 'visible';
+  //console.log("choice is " + choice);
+  console.log(choiceSelect);
+  ajax.setup(choiceSelect)
 }
 
-ajax.populateFeed = function(){
-  if(catagory=="home"){
+ajax.populateFeed = function(select){
+  if(select=="home" || select==""){
+    console.log("match home");
     clearBox();
     var count =0;
+    console.log(theJSON);
     for (var i=0; i<theJSON.results.length &&  count < 12; i++){
       if(theJSON.results[i].multimedia.length != 0){
         count = count+1;
         console.log(count);
         output += '<section class="feedCell md-flex-basis-tb md-flex-basis-dt">';
-          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 100%;" class="feedImage">'
-          output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
-          output += '</a></section>';
+        output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feedImage">';
+        output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
+        output += '</a></section>';
         }
     } 
   } else {
+    console.log("match catagory");
     clearBox();
-    var count =0;
-    for (var i=0; i<theJSON.results.length && count < 12; i++){
-      if(theJSON.results[i].section==catagory){
+    var count=0;
+    console.log(theJSON);
+    console.log(theJSON.results.length);
+    for (var i=0; i<theJSON.results.length && count<12; i++){
+      if(theJSON.section==select){
         if(theJSON.results[i].multimedia.length != 0){
           count = count+1;
           console.log(count);
           output += '<section class="feedCell md-flex-basis-tb md-flex-basis-dt">';
-          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 100%;" class="feedImage">'
+          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feedImage">';
           output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
           output += '</a></section>';
         }
@@ -56,7 +67,7 @@ ajax.populateFeed = function(){
   output="";
 }
 
-ajax.compileList = function() {
+/*ajax.compileList = function() {
   //console.log("Start Compile List");
   //console.log(theJSON);
   for (var i=0; i<theJSON.results.length; i++){
@@ -72,44 +83,52 @@ ajax.compileList = function() {
     var opt = nytCatagory[i];
     var el = document.createElement("option");
     el.textContent = opt;
-    el.value = opt;
+    el.value = opt.toLowerCase();
+    //console.log(el.value);
     target.appendChild(el);
   }
-}
+}*/
 
-ajax.send = function(event) {
-  //console.log("Start Send");
+ajax.send = function(select) {
+  console.log("Start Send");
   serviceChannel.onreadystatechange = function() {
     if (serviceChannel.readyState == 4){
-      //console.log(serviceChannel.readyState);
+      console.log(serviceChannel.readyState);
       if (serviceChannel.status == 200){
-        //console.log(serviceChannel.status);
+        console.log(serviceChannel.status);
         theJSON = JSON.parse(serviceChannel.responseText);   
-        document.getElementById("dropdown").innerHTML="";
-        ajax.compileList();
-        ajax.populateFeed();      
+        //document.getElementById("dropdown").innerHTML="";
+        //ajax.compileList();
+        ajax.populateFeed(select);      
       }
     }
   }
 }
 
-ajax.buildURL = function(V) {
+ajax.buildURL = function(select) {
   //console.log("Start Build");
   url="";
-  var finishURL = [ "https://api.nytimes.com/svc/topstories/v2/", "home", ".json?api-key=", apiKey];
+  console.log(select)
+  if(select=="" || select==undefined){
+    var finishURL = ["https://api.nytimes.com/svc/topstories/v2/", "home", ".json?api-key=", apiKey];
+  } else {
+    var finishURL = ["https://api.nytimes.com/svc/topstories/v2/", select, ".json?api-key=", apiKey];
+  }
   for(var i=0; i<=(finishURL.length-1); i++){
     url += finishURL[i];
   }
+  console.log(url);
 }
 
-ajax.setup = function() {
+ajax.setup = function(select) {
   //console.log("Start Setup");
-  ajax.buildURL();
-  //console.log(url);
+  console.log(select);
+  ajax.buildURL(select);
+  console.log(url);
   serviceChannel.open('GET', url, true);
   serviceChannel.send();
-  //console.log("Setup complete");
-  ajax.send();
+  console.log("Setup complete");
+  ajax.send(select);
 }
 
-window.addEventListener("load", ajax.setup,true);
+window.addEventListener("load", ajax.setup(),true);

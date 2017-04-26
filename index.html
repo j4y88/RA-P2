@@ -8,23 +8,36 @@
 	</head>
 
 	<body>
-		<div class="flex flex-col width-full flex-align-body">
-			<header class="flex flex-col md-flex-row flex-align-center width-full">
-				<img id="Logo" src="images/nyt-logo.svg" class="margin-25">
-				<div id="Selection" class="flex flex-col">
+		<div id="upper" style="padding-top: 31vh;" class="upper flex flex-col width-full flex-align-body">
+			<header class="flex flex-col md-flex-row flex-align-center width-full margin-10 md-flex-align-dt">
+				<img id="Logo" src="images/nyt-logo.svg" class="margin-10">
+				<div id="Selection" class="flex flex-col flex-align-center md-flex-align-tb">
 					<p class="margin-10">Choose a selection:</p> 
 					<form>
-					  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-25">
-					  	<option value="home" name="home">Sections...</option>
+					  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-10">
+					  	<option value="home">Sections...</option>
+					  	<option value="home">Top Stories</option>
+					  	<option value="opinion">Opinions</option>
+					  	<option value="world">World</option>
+					  	<option value="national">National</option>
+					  	<option value="politics">Politics</option>
+					  	<option value="nyregion">NY Region</option>
+					  	<option value="business">Business</option>
+					  	<option value="technology">Technology</option>
+					  	<option value="science">Science</option>
+					  	<option value="health">Health</option>
+					  	<option value="sports">Sports</option>
+					  	<option value="arts">Arts</option>
+					  	<option value="books">Books</option>
+					  	<option value="movies">Movies</option>
 						</select>
 					</form>
 				</div>
 			</header>
 
-			<div id="outputFeed" class="flex flex-col md-flex-row flex-align-center width-full">
+			<div id="outputFeed" style="visibility: hidden;" class="flex flex-col md-flex-row flex-align-center width-full">
 			</div>
 		</div>
-			
-			<footer class="text-align-center margin-10">&copy;Copyright 2017 INSTANEWS</footer>
+		<footer class="footer text-align-center md-text-align-dt">&copy;Copyright 2017 INSTANEWS</footer>
 	</body>
 </html>

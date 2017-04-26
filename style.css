@@ -80,23 +80,33 @@ input, select {
 }
 
 /*GLOBAL CSS*/
-* {
-	box-sizing: border-box; 
-	border: 1px solid black;
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
 body {
 	background-color: #000;
-	min-height:100%;
-  	position:relative;
+	position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+* {
+	box-sizing: border-box; 
+	border: 1px solid black;
 }
 body, p {
 	font-family:"Open Sans";
 	font-weight: 300;
 	color: #ffffff;
-	font-size: 16px;
+	font-size: 1em;
+	line-height: 1.2;
 }
-footer p{
+footer {
 	color: #c2c2c2;
+}
+select {
+	font-size: 1em;
 }
 a {
 	text-decoration: none;
@@ -182,9 +192,28 @@ h3{
 	background-color: rgba(0,0,0,0.6);
 	z-index: 2;
 	text-align: left;
-	padding: 20px;
+	padding: 15px;
 }
-
+.hide {
+	display: none;
+}
+.unhide {
+	display: inline;
+}
+.upper {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%px;
+  width: 100%;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 2rem 3rem 2rem;
+  background-color: #000;
+}
 /*
 <div id="outputFeed" class="flex flex-col flex-align-center width-full">
 	<div class="feedCell">
@@ -196,15 +225,33 @@ h3{
 */
 
 @media (min-width: 600px){
+body, p {
+	font-size: 1.05em;
+}
 .md-flex-row {
 	flex-flow: row wrap;
 }
 .md-flex-basis-tb {
 	flex-basis: 33%;
+}
+.md-flex-align-tb {
+	align-items: initial;
 }}
 
 @media (min-width: 1000px){
+body, p {
+	font-size: 1.1em;
+}
 .md-flex-basis-dt {
 	flex-basis: 25%;
-}}
 }
+.md-flex-align-dt {
+	justify-content: initial;
+}
+.md-text-align-dt {
+	text-align: left;
+}}
+
+
+
+
