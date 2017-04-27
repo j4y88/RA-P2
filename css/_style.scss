@@ -1,27 +1,27 @@
+$text-color: #ffffff;
+$footer-text-color: #c2c2c2;
+$background-color: #000000;
+
 html {
-  height: 100%;
-  box-sizing: border-box;
+  	height: 100%;
+  	box-sizing: border-box;
 }
 body {
-	background-color: #000;
+	background-color: $background-color;
 	position: relative;
-  margin: 0;
-  padding-bottom: 6rem;
-  min-height: 100%;
-}
-* {
-	box-sizing: border-box; 
-	border: 1px solid black;
+  	margin: 0;
+  	padding-bottom: 6rem;
+  	min-height: 100%;
 }
 body, p {
 	font-family:"Open Sans";
 	font-weight: 300;
-	color: #ffffff;
+	color: $text-color;
 	font-size: 1em;
 	line-height: 1.2;
 }
 footer {
-	color: #c2c2c2;
+	color: $footer-text-color;
 }
 select {
 	font-size: 1em;
@@ -37,9 +37,6 @@ h3{
 }
 .flex {
 	display: flex;
-}
-.flex-grow {
-	flex-grow: 1;
 }
 .flex-align-around {
 	justify-content: space-around;
@@ -96,7 +93,7 @@ h3{
 }
 .feedImage {
 	display: flex;
-	flex: column wrap;
+	flex-flow: column wrap;
 	align-items: flex-end;
 	width: 100%;
 	height: 100vw;
@@ -105,7 +102,7 @@ h3{
 .feedAbstract {
 	width: 100%;
 	display: block;
-	color: #ffffff;
+	color: $text-color;
 	text-decoration: none;
 	background-color: rgba(0,0,0,0.6);
 	z-index: 2;
@@ -132,15 +129,6 @@ h3{
   padding: 0 2rem 3rem 2rem;
   background-color: #000;
 }
-/*
-<div id="outputFeed" class="flex flex-col flex-align-center width-full">
-	<div class="feedCell">
-		<a href="#" style="background-image: url(#);" src="#" class="flex flex-col flex-align-bottom feedImage">
-		<h3 class="feedAbstract">Abstract</h3>
-		</a>
-	</div>
-</div>
-*/
 
 @media (min-width: 600px){
 body, p {
