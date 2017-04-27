@@ -1,5 +1,3 @@
-
-* {border: 1px solid white}
 html {
   height: 100%;
   box-sizing: border-box;
@@ -7,9 +5,13 @@ html {
 body {
 	background-color: #000;
 	position: relative;
-  	margin: 0;
-  	padding-bottom: 6rem;
-  	min-height: 100%;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+* {
+	box-sizing: border-box; 
+	border: 1px solid black;
 }
 body, p {
 	font-family:"Open Sans";
@@ -127,38 +129,38 @@ h3{
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 0 2rem 3rem 2rem;
-  background-color: #000000;
+  padding: 2rem;
+  background-color: #000;
 }
 
 @media (min-width: 600px){
-	body, p {
-		font-size: 1.05em;
-	}
-	.md-flex-row {
-		flex-flow: row wrap;
-	}
-	.md-flex-basis-tb {
-		flex-basis: 33%;
-	}
-	.md-flex-align-tb {
-		align-items: initial;
-	}
+body, p {
+	font-size: 1.05em;
+}
+.md-flex-row {
+	flex-flow: row wrap;
+}
+.md-flex-basis-tb {
+	flex-basis: 33%;
+}
+.md-flex-align-tb {
+	align-items: initial;
+}
 }
 
 @media (min-width: 1000px){
-	body, p {
-		font-size: 1.1em;
-	}
-	.md-flex-basis-dt {
-		flex-basis: 25%;
-	}
-	.md-flex-align-dt {
-		justify-content: initial;
-	}
-	.md-text-align-dt {
-		text-align: left;
-	}
+body, p {
+	font-size: 1.1em;
+}
+.md-flex-basis-dt {
+	flex-basis: 25%;
+}
+.md-flex-align-dt {
+	justify-content: initial;
+}
+.md-text-align-dt {
+	text-align: left;
+}
 }
 
 
