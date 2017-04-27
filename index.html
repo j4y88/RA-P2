@@ -8,13 +8,13 @@
 	</head>
 
 	<body>
-		<div id="upper" style="padding-top: 31vh;" class="upper flex flex-col width-full flex-align-body">
-			<header class="flex flex-col md-flex-row flex-align-center width-full margin-10 md-flex-align-dt">
-				<img id="Logo" src="images/nyt-logo.svg" class="margin-10">
-				<div id="Selection" class="flex flex-col flex-align-center md-flex-align-tb">
-					<p class="margin-10">Choose a selection:</p> 
+		<div id="upper" style="padding-top: 30vh;" class="upper flex col width-full flex-align body">
+			<header class="flex col flex-align center width-full margin m10 md-flex-row md-flex-align-dt">
+				<img id="Logo" src="images/nyt-logo.svg" class="margin m10">
+				<div id="Selection" class="flex col flex-align center md-flex-align-tb">
+					<p class="margin m10">Choose a selection:</p> 
 					<form>
-					  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-10">
+					  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin m10">
 					  	<option value="home">Sections...</option>
 					  	<option value="home">Top Stories</option>
 					  	<option value="opinion">Opinions</option>
@@ -35,7 +35,7 @@
 				</div>
 			</header>
 
-			<div id="outputFeed" style="visibility: hidden;" class="flex flex-col md-flex-row flex-align-center width-full">
+			<div id="outputFeed" style="visibility: hidden;" class="flex col md-flex-row flex-align center width-full">
 			</div>
 		</div>
 		<footer class="footer text-align-center md-text-align-dt">&copy;Copyright 2017 INSTANEWS</footer>

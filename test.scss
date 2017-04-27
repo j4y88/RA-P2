@@ -1,0 +1,13 @@
+.three {
+	color:blue;
+	&.two {
+		font-size: 300%;
+	}
+}
+
+.one {
+	text-align: center;
+	&.two {
+		font-size: 200%;
+	}
+}

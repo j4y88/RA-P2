@@ -37,9 +37,9 @@ ajax.populateFeed = function(select){
       if(theJSON.results[i].multimedia.length != 0){
         count = count+1;
         console.log(count);
-        output += '<section class="feedCell md-flex-basis-tb md-flex-basis-dt">';
-        output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feedImage">';
-        output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
+        output += '<section class="feed cell md-flex-basis-tb md-flex-basis-dt">';
+        output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feed image">';
+        output += '<h3 class="feed abstract">' + theJSON.results[i].abstract + '</h3>';
         output += '</a></section>';
         }
     } 
@@ -54,9 +54,9 @@ ajax.populateFeed = function(select){
         if(theJSON.results[i].multimedia.length != 0){
           count = count+1;
           console.log(count);
-          output += '<section class="feedCell md-flex-basis-tb md-flex-basis-dt">';
-          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feedImage">';
-          output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
+          output += '<section class="feed cell md-flex-basis-tb md-flex-basis-dt">';
+          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feed image">';
+          output += '<h3 class="feed abstract">' + theJSON.results[i].abstract + '</h3>';
           output += '</a></section>';
         }
       }

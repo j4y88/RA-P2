@@ -11,3 +11,10 @@ gulp.task("minify", function(){
 	.pipe(clean())
 	.pipe(gulp.dest('./css'))
 });
+
+gulp.task("test", function(){
+	return gulp.src('./test.scss')
+	.pipe(sass())
+	.pipe(rename('test.css'))
+	.pipe(gulp.dest('./'))
+});
