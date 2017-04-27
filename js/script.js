@@ -23,41 +23,41 @@ checkCatagory = function(){
   var unHide = document.getElementById("outputFeed");
   unHide.style.visibility = 'visible';
   //console.log("choice is " + choice);
-  console.log(choiceSelect);
-  ajax.setup(choiceSelect)
+  //console.log(choiceSelect);
+  ajax.setup(choiceSelect);
 }
 
 ajax.populateFeed = function(select){
   if(select=="home" || select==""){
-    console.log("match home");
+    //console.log("match home");
     clearBox();
     var count =0;
-    console.log(theJSON);
-    for (var i=0; i<theJSON.results.length &&  count < 12; i++){
+    //console.log(theJSON);
+    for (var i=0; i<theJSON.results.length && count < 12; i++){
       if(theJSON.results[i].multimedia.length != 0){
         count = count+1;
-        console.log(count);
-        output += '<section class="feed cell md-flex-basis-tb md-flex-basis-dt">';
-        output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feed image">';
-        output += '<h3 class="feed abstract">' + theJSON.results[i].abstract + '</h3>';
-        output += '</a></section>';
+       //console.log(count);
+        output += '<article class="feedCell md-flex-basis-tb md-flex-basis-dt">';
+        output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: cover;" class="feedImage">';
+        output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
+        output += '</a></article>';
         }
     } 
   } else {
-    console.log("match catagory");
+    //console.log("match catagory");
     clearBox();
     var count=0;
-    console.log(theJSON);
-    console.log(theJSON.results.length);
+    //console.log(theJSON);
+    //console.log(theJSON.results.length);
     for (var i=0; i<theJSON.results.length && count<12; i++){
       if(theJSON.section==select){
         if(theJSON.results[i].multimedia.length != 0){
           count = count+1;
-          console.log(count);
-          output += '<section class="feed cell md-flex-basis-tb md-flex-basis-dt">';
-          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: auto 105%;" class="feed image">';
-          output += '<h3 class="feed abstract">' + theJSON.results[i].abstract + '</h3>';
-          output += '</a></section>';
+         //console.log(count);
+          output += '<article class="feedCell md-flex-basis-tb md-flex-basis-dt">';
+          output += '<a href="' + theJSON.results[i].url + '" style="background: url(' + theJSON.results[i].multimedia[4].url + ') center center no-repeat; background-size: cover;" class="feedImage">';
+          output += '<h3 class="feedAbstract">' + theJSON.results[i].abstract + '</h3>';
+          output += '</a></article>';
         }
       }
     }
@@ -90,12 +90,12 @@ ajax.populateFeed = function(select){
 }*/
 
 ajax.send = function(select) {
-  console.log("Start Send");
+ //console.log("Start Send");
   serviceChannel.onreadystatechange = function() {
     if (serviceChannel.readyState == 4){
-      console.log(serviceChannel.readyState);
+     //console.log(serviceChannel.readyState);
       if (serviceChannel.status == 200){
-        console.log(serviceChannel.status);
+       //console.log(serviceChannel.status);
         theJSON = JSON.parse(serviceChannel.responseText);   
         //document.getElementById("dropdown").innerHTML="";
         //ajax.compileList();
@@ -108,7 +108,7 @@ ajax.send = function(select) {
 ajax.buildURL = function(select) {
   //console.log("Start Build");
   url="";
-  console.log(select)
+ //console.log(select)
   if(select=="" || select==undefined){
     var finishURL = ["https://api.nytimes.com/svc/topstories/v2/", "home", ".json?api-key=", apiKey];
   } else {
@@ -117,17 +117,17 @@ ajax.buildURL = function(select) {
   for(var i=0; i<=(finishURL.length-1); i++){
     url += finishURL[i];
   }
-  console.log(url);
+ //console.log(url);
 }
 
 ajax.setup = function(select) {
   //console.log("Start Setup");
-  console.log(select);
+ //console.log(select);
   ajax.buildURL(select);
-  console.log(url);
+ //console.log(url);
   serviceChannel.open('GET', url, true);
   serviceChannel.send();
-  console.log("Setup complete");
+ //console.log("Setup complete");
   ajax.send(select);
 }
 
