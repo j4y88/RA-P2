@@ -2,42 +2,41 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" media="none" onload="if(media!='all')media='all'">
-		<link type="text/css" rel="stylesheet" href="css/min.sty.css">
-    <script type="text/javascript" src="js/script.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/min.sty.css" media="none" onload="if(media!='all')media='all'">
 		<meta charset="UTF-8">
 	</head>
 
 	<body>
-		<div id="upper" style="padding-top: 30vh;" class="upper flex flex-col width-full flex-align-body">
-			<header class="flex flex-col md-flex-row flex-align-center width-full margin-10 md-flex-align-dt">
-				<img id="Logo" src="images/nyt-logo.svg" class="margin-10">
-				<div id="Selection" class="flex flex-col flex-align-center md-flex-align-tb">
-					<p class="margin-10">Choose a selection:</p> 
-					<form>
-					  <select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-10">
-					  	<option value="home">Sections...</option>
-					  	<option value="home">Top Stories</option>
-					  	<option value="opinion">Opinions</option>
-					  	<option value="world">World</option>
-					  	<option value="national">National</option>
-					  	<option value="politics">Politics</option>
-					  	<option value="nyregion">NY Region</option>
-					  	<option value="business">Business</option>
-					  	<option value="technology">Technology</option>
-					  	<option value="science">Science</option>
-					  	<option value="health">Health</option>
-					  	<option value="sports">Sports</option>
-					  	<option value="arts">Arts</option>
-					  	<option value="books">Books</option>
-					  	<option value="movies">Movies</option>
-						</select>
-					</form>
-				</div>
-			</header>
-
-			<div id="outputFeed" style="visibility: hidden;" class="flex flex-col md-flex-row flex-align center width-full">
-			</div>
+		<div id="loader-wrapper" class="hide">
+    	<div id="loader" class="loader-bg"></div>
 		</div>
+		<header id="nav" class="upper flex flex-col md-flex-row flex-align-center md-flex-align-dt margin-10">
+			<img id="Logo" src="images/nyt-logo.svg" class="margin-10 logo">
+			<div id="Selection" class="flex flex-col flex-align-center md-flex-align-tb">
+				<p class="margin-10">Choose a selection:</p> 
+				<select id="dropdown" onchange="checkCatagory(this), clearBox()" class="margin-10">
+					 <option value="home" selected="selected" disabled="disabled">Sections...</option>
+					 <option value="home">Top Stories</option>
+					 <option value="opinion">Opinions</option>
+					 <option value="world">World</option>
+					 <option value="national">National</option>
+					 <option value="politics">Politics</option>
+					 <option value="nyregion">NY Region</option>
+					 <option value="business">Business</option>
+					 <option value="technology">Technology</option>
+					 <option value="science">Science</option>
+					 <option value="health">Health</option>
+					 <option value="sports">Sports</option>
+					 <option value="arts">Arts</option>
+					 <option value="books">Books</option>
+					 <option value="movies">Movies</option>
+				</select>
+			</div>
+		</header>
+
+		<div id="outputFeed" style="visibility: hidden;" class="flex flex-row flex-align-center"></div>
+
 		<footer class="footer text-align-center md-text-align-dt">&copy;Copyright 2017 INSTANEWS</footer>
+		<script type="text/javascript" src="js/script.js"></script>
 	</body>
 </html>
