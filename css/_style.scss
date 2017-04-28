@@ -237,4 +237,11 @@ a:hover .to-fade {
 	.calapse {
 		height: 250px;
 	}
+	.to-fade {
+   		opacity: 0%;
+   		transition: opacity 0.5s ease;
+	}
+	a:hover .to-fade { 
+   		opacity: 100;
+	}
 }
